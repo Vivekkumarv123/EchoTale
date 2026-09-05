@@ -245,14 +245,8 @@ export default function NotFound() {
       <div className="relative z-10 max-w-xl w-full text-center flex flex-col items-center">
         {/* ISEKAI PORTAL WITH GIF OVERLAY & THREE.JS GLOW */}
         <div className="relative mb-8 flex items-center justify-center">
-          {/* Animated Quantum Hole / Portal GIF Background */}
-          <div className="absolute w-60 h-60 rounded-full overflow-hidden opacity-50 mix-blend-screen pointer-events-none">
-            <img
-              src="https://media1.tenor.com/m/ux4zLb5rDekAAAAC/bear-inthe-big-blue-house-bear-in-the-big-blue-house.gif"
-              alt="Quantum Portal Rift"
-              className="w-full h-full object-cover scale-125"
-            />
-          </div>
+          {/* Animated Quantum Hole / Portal Glow Background */}
+          <div className="absolute w-60 h-60 rounded-full overflow-hidden opacity-50 mix-blend-screen pointer-events-none bg-gradient-to-tr from-cyan-500/30 via-fuchsia-500/20 to-amber-400/20 animate-pulse blur-xl" />
 
           {/* Outer Rotating Arcana Ring */}
           <div

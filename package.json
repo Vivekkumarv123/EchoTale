@@ -5,9 +5,8 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p 3000",
     "build": "NODE_OPTIONS='--max-old-space-size=2048' next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "clean": "next clean"
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@google-cloud/secret-manager": "^7.0.0",
