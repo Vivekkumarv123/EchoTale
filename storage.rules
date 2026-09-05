@@ -1,0 +1,26 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Sanctum Moment memory photos
+    match /sanctumMoments/{ownerUid}/{momentId}/{fileName} {
+      // Public read for recipient keepsake viewing
+      allow read: if true;
+
+      // Authenticated owner write with strict size and MIME type guards
+      allow write: if request.auth != null 
+                    && request.auth.uid == ownerUid
+                    && request.resource.size < 5 * 1024 * 1024
+                    && request.resource.contentType.matches('image/.*');
+
+      // Owner-only deletion
+      allow delete: if request.auth != null && request.auth.uid == ownerUid;
+    }
+  }
+}

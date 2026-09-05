@@ -1,0 +1,54 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for zero-trust authorization
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Default deny all unmapped paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User profile document: strictly owner-only
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      // Private journal entries subcollection
+      match /entries/{entryId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // Private life chapters subcollection
+      match /chapters/{chapterId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // Cryptographic Time Capsules ("Sealed Prophecies") subcollection
+      match /prophecies/{prophecyId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // Sanctum Moments (Public Bearer Keepsakes)
+    match /sanctumMoments/{momentId} {
+      // Intentional public single-document read via unique bearer link
+      allow get: if true;
+      // Mass enumeration strictly forbidden for general public; owner can query their own
+      allow list: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
+
+      // Creation restricted to authenticated owner
+      allow create: if isSignedIn() && request.resource.data.ownerUid == request.auth.uid;
+
+      // Modification and deletion strictly owner-only
+      allow update, delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
+    }
+  }
+}

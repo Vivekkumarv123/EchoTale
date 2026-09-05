@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "type": "object",
+      "description": "User profile and metadata",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "theme": { "type": "string", "enum": ["grimoire", "fairytale", "cyber"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "lastLoginAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "type": "object",
+      "description": "A private journal entry written by the authenticated user",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "content", "createdAt"]
+    },
+    "Chapter": {
+      "title": "Chapter",
+      "type": "object",
+      "description": "A saved life chapter containing reflection synthesis, summary, and mood metadata",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "prompt": { "type": "string" },
+        "reflection": { "type": "string" },
+        "summary": { "type": "string" },
+        "contextTag": { "type": "string" },
+        "moodScore": { "type": "string" },
+        "moodLabel": { "type": "string" },
+        "lifeChapter": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "reflection", "createdAt"]
+    },
+    "TimeCapsule": {
+      "title": "TimeCapsule",
+      "type": "object",
+      "description": "Cryptographic time capsule containing encrypted reflections sealed until an unlock date",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "ciphertext": { "type": "string" },
+        "iv": { "type": "string" },
+        "salt": { "type": "string" },
+        "previewSnippet": { "type": "string" },
+        "unlockDate": { "type": "string", "format": "date-time" },
+        "isUnlocked": { "type": "boolean" },
+        "fulfilledChapter": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "ciphertext", "unlockDate", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document owned strictly by userId"
+    },
+    "/users/{userId}/entries/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "Private journal entries scoped to the authenticated user"
+    },
+    "/users/{userId}/chapters/{chapterId}": {
+      "schema": "Chapter",
+      "description": "Saved life chapters belonging strictly to the authenticated user"
+    },
+    "/users/{userId}/prophecies/{prophecyId}": {
+      "schema": "TimeCapsule",
+      "description": "Cryptographically sealed time capsules belonging strictly to the authenticated user"
+    }
+  }
+}

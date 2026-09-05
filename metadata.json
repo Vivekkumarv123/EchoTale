@@ -1,0 +1,6 @@
+{
+  "name": "EchoTale",
+  "description": "EchoTale is a personal reflective journal and sealed Sanctum Moments keepsake creator with immersive unboxing ceremonies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
