@@ -32,7 +32,16 @@ export default function Error({
 
       <div className="flex items-center gap-4">
         <Button
-          onClick={() => reset()}
+          onClick={() => {
+            if (
+              error?.message?.includes("ChunkLoadError") ||
+              error?.message?.includes("Loading chunk")
+            ) {
+              window.location.reload();
+            } else {
+              reset();
+            }
+          }}
           className="px-6 py-3 rounded-2xl bg-[#5C3317] hover:bg-[#43220F] text-[#FAF6F0] font-bold text-sm shadow-md flex items-center gap-2 cursor-pointer"
         >
           <RefreshCw className="w-4 h-4" />
