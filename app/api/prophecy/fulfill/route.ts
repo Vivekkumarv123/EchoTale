@@ -5,17 +5,7 @@ import { getSecret } from "@/lib/secrets";
 import { checkRateLimit } from "@/lib/rate-limiter";
 import { GoogleGenAI } from "@google/genai";
 
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT:
-// 1. Unauthenticated client invoking prophecy fulfillment LLM endpoint.
-// 2. Prompt injection through pastEntry deciphered payloads.
-// 3. Excessive resource consumption / quota exhaustion.
-// RULES:
-// - Verify ID Token using Firebase Admin SDK server-side.
-// - Enforce rate limiting per authenticated UID.
-// - Retrieve GEMINI_API_KEY dynamically via Secret Manager with fail-closed isolation.
-// - Validate payloads strictly via Zod schema.
-// - Separate system instructions from user content to prevent prompt injection.
+export const dynamic = "force-dynamic";
 
 const FulfillRequestSchema = z.object({
   pastEntry: z.string().min(1, "Past entry is required").max(4000, "Maximum character limit is 4000"),

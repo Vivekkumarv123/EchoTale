@@ -2,19 +2,8 @@ import { initializeApp, getApps, cert, applicationDefault, type App } from "fire
 import { getFirestore, type Firestore, FieldValue } from "firebase-admin/firestore";
 
 /**
- * =========================================================================
- * PERSONA A: SECURE BACKEND FIRESTORE (ADMIN SDK)
- * =========================================================================
- * THREAT:
- * 1. Client SDK used on the server causing hanging connections, missing credentials,
- *    and unhandled socket timeouts.
- * 2. Unverified server-side queries exposing or failing to fetch user-scoped documents.
- * 
- * SECURITY RULE ADDRESSED:
- * - "Every backend endpoint verifies and accesses database via the Admin SDK with
- *    proper server credentials."
- * - "Never hardcode API keys or credentials; use runtime environment variables."
- * =========================================================================
+ * Firebase Admin SDK & Firestore Singleton
+ * Safely initializes server-side Firestore using Service Account credentials or Application Default Credentials (ADC).
  */
 
 function getAdminApp(): App {

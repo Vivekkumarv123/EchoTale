@@ -1,6 +1,7 @@
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT: Denial of Service (DoS) and API quota exhaustion via rapid automated requests.
-// RULE: Apply per-user rate limit / quota on backend endpoints to prevent cost and resource abuse.
+/**
+ * Sliding Window Rate Limiter
+ * Limits requests per authenticated UID to prevent API abuse and quota exhaustion.
+ */
 
 interface RateLimitRecord {
   timestamps: number[];

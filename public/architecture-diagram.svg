@@ -1,0 +1,287 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16"/>
+      <stop offset="50%" stop-color="#0d1424"/>
+      <stop offset="100%" stop-color="#070a12"/>
+    </linearGradient>
+
+    <!-- Radial Ambient Glows -->
+    <radialGradient id="cyanGlow" cx="25%" cy="35%" r="35%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="purpleGlow" cx="60%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="90%" cy="60%" r="35%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Card Background Gradients -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="cloudRunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="accentAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadowCard" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#06b6d4" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#8b5cf6" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Markers for Connectors -->
+    <marker id="arrowCyan" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 1 L 6 4 L 0 7 z" fill="#06b6d4"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 1 L 6 4 L 0 7 z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 1 L 6 4 L 0 7 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 1 L 6 4 L 0 7 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; fill: #ffffff; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 500; fill: #94a3b8; }
+    .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.08em; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 15px; fill: #f8fafc; }
+    .card-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 400; font-size: 11.5px; fill: #94a3b8; }
+    .item-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 500; font-size: 12px; fill: #e2e8f0; }
+    .item-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 400; font-size: 10.5px; fill: #64748b; }
+    .tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; font-size: 10px; }
+  </style>
+
+  <!-- Deep Canvas Background -->
+  <rect width="1200" height="680" fill="url(#bgGrad)" />
+  <rect width="1200" height="680" fill="url(#cyanGlow)" />
+  <rect width="1200" height="680" fill="url(#purpleGlow)" />
+  <rect width="1200" height="680" fill="url(#blueGlow)" />
+
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="80" x2="1200" y2="80"/>
+    <line x1="0" y1="160" x2="1200" y2="160"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="320" x2="1200" y2="320"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="560" x2="1200" y2="560"/>
+    <line x1="200" y1="0" x2="200" y2="680"/>
+    <line x1="400" y1="0" x2="400" y2="680"/>
+    <line x1="600" y1="0" x2="600" y2="680"/>
+    <line x1="800" y1="0" x2="800" y2="680"/>
+    <line x1="1000" y1="0" x2="1000" y2="680"/>
+  </g>
+
+  <!-- ==================== HEADER SECTION ==================== -->
+  <g transform="translate(60, 42)">
+    <!-- Hackathon Pill Badge -->
+    <rect x="0" y="0" width="490" height="26" rx="13" fill="#1e293b" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="1.2"/>
+    <circle cx="13" cy="13" r="5" fill="#3b82f6"/>
+    <text x="26" y="17" class="badge-text" fill="#60a5fa">GOOGLE GEN AI APAC COHORT 3 : AI ACCELERATE WITH CLOUD RUN</text>
+
+    <!-- Main Title -->
+    <text x="0" y="58" class="title" font-size="26">EchoTale — System Architecture &amp; Zero-Trust Data Flow</text>
+    <text x="0" y="78" class="subtitle" font-size="13">End-to-End Reactive Journaling, Serverless Container Execution &amp; Fail-Closed LLM Pipelines</text>
+  </g>
+
+  <!-- ==================== LEFT TIER: CLIENT BROWSER ==================== -->
+  <g transform="translate(60, 150)">
+    <!-- Container Box -->
+    <rect x="0" y="0" width="280" height="420" rx="18" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5" filter="url(#shadowCard)"/>
+    
+    <!-- Top Bar -->
+    <rect x="0" y="0" width="280" height="46" rx="18" fill="#0284c7" fill-opacity="0.12"/>
+    <path d="M 0 32 Q 0 46 18 46 L 262 46 Q 280 46 280 32 L 280 18 Q 280 0 262 0 L 18 0 Q 0 0 0 18 Z" fill="none" stroke="#38bdf8" stroke-opacity="0.2"/>
+    
+    <circle cx="24" cy="23" r="6" fill="#38bdf8"/>
+    <text x="38" y="27" class="badge-text" fill="#38bdf8">CLIENT BROWSER TIER</text>
+
+    <text x="20" y="74" class="card-title">Next.js 15 &amp; React 19</text>
+    <text x="20" y="92" class="card-desc">Interactive 3D UI, Audio Synthesis &amp; Auth</text>
+
+    <!-- Sub Card 1 -->
+    <rect x="16" y="108" width="248" height="60" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="28" y="129" class="item-text">✨ Three.js 3D Interactive Canvas</text>
+    <text x="28" y="148" class="item-sub">Wax seal break, particle sparks &amp; unboxing</text>
+
+    <!-- Sub Card 2 -->
+    <rect x="16" y="178" width="248" height="60" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="28" y="199" class="item-text">📜 Multiverse Narrative Styling</text>
+    <text x="28" y="218" class="item-sub">Vintage Grimoire, Fairy Tale &amp; Kinetic Cyber</text>
+
+    <!-- Sub Card 3 -->
+    <rect x="16" y="248" width="248" height="60" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="28" y="269" class="item-text">🎵 Procedural Ambient Synth</text>
+    <text x="28" y="288" class="item-sub">Web Audio API continuous mood soundscapes</text>
+
+    <!-- Sub Card 4 -->
+    <rect x="16" y="318" width="248" height="82" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="28" y="339" class="item-text" fill="#38bdf8">🔐 Firebase Client SDK</text>
+    <text x="28" y="358" class="item-sub">Google Auth &amp; Passwordless sign-in</text>
+    <text x="28" y="378" class="item-sub">Issues short-lived RS256 JWT bearer tokens</text>
+  </g>
+
+  <!-- ==================== CONNECTOR: CLIENT -> CLOUD RUN ==================== -->
+  <g transform="translate(340, 310)">
+    <!-- Line -->
+    <path d="M 0 0 L 80 0" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#arrowCyan)" filter="url(#glowCyan)"/>
+    <!-- Protocol Badge -->
+    <rect x="8" y="-22" width="64" height="18" rx="9" fill="#083344" stroke="#06b6d4" stroke-width="1"/>
+    <text x="40" y="-10" text-anchor="middle" class="tag" fill="#67e8f9">HTTPS / TLS</text>
+    <text x="40" y="16" text-anchor="middle" class="item-sub" fill="#38bdf8">JWT Bearer</text>
+  </g>
+
+  <!-- ==================== CENTER TIER: GOOGLE CLOUD RUN ==================== -->
+  <g transform="translate(420, 140)">
+    <!-- Container Box -->
+    <rect x="0" y="0" width="360" height="440" rx="20" fill="url(#cloudRunGrad)" stroke="#6366f1" stroke-opacity="0.5" stroke-width="2" filter="url(#shadowCard)"/>
+    
+    <!-- Top Bar -->
+    <rect x="0" y="0" width="360" height="52" rx="20" fill="#4f46e5" fill-opacity="0.15"/>
+    <path d="M 0 32 Q 0 52 20 52 L 340 52 Q 360 52 360 32 L 360 20 Q 360 0 340 0 L 20 0 Q 0 0 0 20 Z" fill="none" stroke="#6366f1" stroke-opacity="0.2"/>
+    
+    <!-- Cloud Run Icon / Badge -->
+    <circle cx="26" cy="26" r="8" fill="#6366f1"/>
+    <text x="42" y="30" class="badge-text" fill="#a5b4fc">GOOGLE CLOUD RUN (COMPUTE ENGINE)</text>
+
+    <text x="24" y="80" class="card-title">Next.js 15 Standalone Container</text>
+    <text x="24" y="98" class="card-desc">Node.js 22 Alpine • Non-Root User (UID 1001) • Auto-scaling 0→N</text>
+
+    <!-- Middleware 1: Auth Guard -->
+    <g transform="translate(20, 114)">
+      <rect x="0" y="0" width="320" height="56" rx="10" fill="#0f172a" stroke="#4f46e5" stroke-opacity="0.3" stroke-width="1.2"/>
+      <circle cx="16" cy="28" r="5" fill="#10b981"/>
+      <text x="32" y="24" class="item-text">🛡️ Server-Side Auth (auth-server.ts)</text>
+      <text x="32" y="42" class="item-sub">Cryptographic Firebase Admin JWT verification</text>
+    </g>
+
+    <!-- Middleware 2: Rate Limiter -->
+    <g transform="translate(20, 178)">
+      <rect x="0" y="0" width="320" height="56" rx="10" fill="#0f172a" stroke="#4f46e5" stroke-opacity="0.3" stroke-width="1.2"/>
+      <circle cx="16" cy="28" r="5" fill="#f59e0b"/>
+      <text x="32" y="24" class="item-text">⏱️ Sliding Rate Limiter (rate-limiter.ts)</text>
+      <text x="32" y="42" class="item-sub">10 req / 60s per authenticated UID quota protection</text>
+    </g>
+
+    <!-- Middleware 3: Secret Manager Resolver -->
+    <g transform="translate(20, 242)">
+      <rect x="0" y="0" width="320" height="56" rx="10" fill="#0f172a" stroke="#4f46e5" stroke-opacity="0.3" stroke-width="1.2"/>
+      <circle cx="16" cy="28" r="5" fill="#06b6d4"/>
+      <text x="32" y="24" class="item-text">🔑 Secret Resolver (secrets.ts)</text>
+      <text x="32" y="42" class="item-sub">Fail-closed retrieval with volatile 5-minute TTL cache</text>
+    </g>
+
+    <!-- Controllers Section -->
+    <g transform="translate(20, 308)">
+      <rect x="0" y="0" width="320" height="112" rx="10" fill="#090d16" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="20" class="badge-text" fill="#94a3b8">REST API CONTROLLER ROUTES (/app/api/*)</text>
+      
+      <text x="14" y="42" class="item-sub" fill="#cbd5e1">• <tspan fill="#38bdf8">/api/reflect</tspan> — Zod-validated entry synthesis &amp; quests</text>
+      <text x="14" y="62" class="item-sub" fill="#cbd5e1">• <tspan fill="#a855f7">/api/prophecy/fulfill</tspan> — Temporal time capsule unlock</text>
+      <text x="14" y="82" class="item-sub" fill="#cbd5e1">• <tspan fill="#f59e0b">/api/moments/polish</tspan> — Keepsake tone refining</text>
+      <text x="14" y="102" class="item-sub" fill="#cbd5e1">• <tspan fill="#10b981">/api/moments/[id]</tspan> — Public keepsake resolution &amp; quiz verification</text>
+    </g>
+  </g>
+
+  <!-- ==================== CONNECTORS: CLOUD RUN -> BACKEND SERVICES ==================== -->
+  <!-- Line to Gemini -->
+  <path d="M 780 230 L 850 230" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrowPurple)" filter="url(#glowPurple)"/>
+  <!-- Line to Secret Manager -->
+  <path d="M 780 360 L 850 360" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrowBlue)"/>
+  <!-- Line to Firestore -->
+  <path d="M 780 490 L 850 490" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrowAmber)"/>
+
+  <!-- ==================== RIGHT TIER: GOOGLE CLOUD SERVICES ==================== -->
+  <!-- Service 1: Gemini API -->
+  <g transform="translate(850, 150)">
+    <rect x="0" y="0" width="290" height="125" rx="14" fill="url(#cardGrad)" stroke="#a855f7" stroke-opacity="0.5" stroke-width="1.5" filter="url(#shadowCard)"/>
+    <rect x="0" y="0" width="290" height="34" rx="14" fill="#7e22ce" fill-opacity="0.2"/>
+    <circle cx="16" cy="17" r="5" fill="#c084fc"/>
+    <text x="28" y="21" class="badge-text" fill="#c084fc">GOOGLE GEMINI API (@google/genai)</text>
+    
+    <text x="16" y="54" class="card-title">Gemini Flash Models</text>
+    <text x="16" y="74" class="item-sub">🛡️ Strict Prompt-Injection Delimiters</text>
+    <text x="16" y="92" class="item-sub">🧠 Literary Chronicle Synthesis &amp; Action Quests</text>
+    <text x="16" y="110" class="item-sub">📊 Emotional Mood Scoring &amp; Trajectory Analysis</text>
+  </g>
+
+  <!-- Service 2: Secret Manager -->
+  <g transform="translate(850, 295)">
+    <rect x="0" y="0" width="290" height="125" rx="14" fill="url(#cardGrad)" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="1.5" filter="url(#shadowCard)"/>
+    <rect x="0" y="0" width="290" height="34" rx="14" fill="#1d4ed8" fill-opacity="0.2"/>
+    <circle cx="16" cy="17" r="5" fill="#60a5fa"/>
+    <text x="28" y="21" class="badge-text" fill="#60a5fa">GOOGLE CLOUD SECRET MANAGER</text>
+    
+    <text x="16" y="54" class="card-title">Zero-Trust Credential Vault</text>
+    <text x="16" y="74" class="item-sub">🔒 Dynamic server-side retrieval of GEMINI_API_KEY</text>
+    <text x="16" y="92" class="item-sub">⚡ Zero secrets exposed to client-side bundles</text>
+    <text x="16" y="110" class="item-sub">🛡️ Application Default Credentials (ADC) IAM</text>
+  </g>
+
+  <!-- Service 3: Cloud Firestore -->
+  <g transform="translate(850, 440)">
+    <rect x="0" y="0" width="290" height="130" rx="14" fill="url(#cardGrad)" stroke="#f59e0b" stroke-opacity="0.5" stroke-width="1.5" filter="url(#shadowCard)"/>
+    <rect x="0" y="0" width="290" height="34" rx="14" fill="#b45309" fill-opacity="0.2"/>
+    <circle cx="16" cy="17" r="5" fill="#fbbf24"/>
+    <text x="28" y="21" class="badge-text" fill="#fbbf24">GOOGLE CLOUD FIRESTORE</text>
+    
+    <text x="16" y="54" class="card-title">Document-Isolated NoSQL DB</text>
+    <text x="16" y="74" class="item-sub">🚫 Strict firestore.rules Default-Deny Security</text>
+    <text x="16" y="92" class="item-sub">📂 Isolated path: /users/{userId}/*</text>
+    <text x="16" y="110" class="item-sub">🎁 Sanctum Moments unguessable bearer access</text>
+  </g>
+
+  <!-- ==================== BOTTOM FOOTER BADGES ==================== -->
+  <g transform="translate(60, 600)">
+    <!-- Badge 1 -->
+    <rect x="0" y="0" width="340" height="40" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="20" cy="20" r="5" fill="#10b981"/>
+    <text x="36" y="24" class="item-text">Zero Client Secret Leakage</text>
+    <text x="200" y="24" class="item-sub">100% Server-Side Keys</text>
+
+    <!-- Badge 2 -->
+    <rect x="370" y="0" width="340" height="40" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="20" cy="20" r="5" fill="#6366f1"/>
+    <text x="36" y="24" class="item-text">Automated Cloud Build CI/CD</text>
+    <text x="215" y="24" class="item-sub">Docker Multi-Stage</text>
+
+    <!-- Badge 3 -->
+    <rect x="740" y="0" width="340" height="40" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="20" cy="20" r="5" fill="#06b6d4"/>
+    <text x="36" y="24" class="item-text">Serverless Autoscaling</text>
+    <text x="195" y="24" class="item-sub">Cloud Run 0→N Scale</text>
+  </g>
+</svg>

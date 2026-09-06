@@ -4,24 +4,12 @@ import { checkRateLimit } from "@/lib/rate-limiter";
 import { PublicSanctumMoment, SanctumMoment } from "@/types/moment";
 import { verifyPasscode } from "@/lib/password-hasher";
 
-// =========================================================================
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT MODEL:
-// 1. Scraping / mass enumeration of moment IDs.
-// 2. Leaking ownerUid or secret quiz answer keys to unauthenticated viewers.
-// 3. Read amplification / DoS against public view route.
-// 4. Unauthorized viewer bypassing passcode protection to read private letters or view personal photos.
-// 5. Brute-force attacks guessing the passcode.
-//
-// SECURITY RULES:
-// - Use server-side Firebase Admin SDK with authenticated service credentials.
-// - Rate-limit per client IP address and per unlock attempt.
-// - Sanitise output strictly: strip ownerUid, strip quiz correctIndex.
-// - For locked keepsakes, strictly omit displayMessage, photoPaths, and quizzes until passcode is verified.
-// - Passcode verification uses constant-time PBKDF2 hash comparison with unique salt.
-// - Plaintext passcodes and raw journal contents are NEVER logged.
-// - Atomic increment of viewCount only on valid access with timeout protection.
-// =========================================================================
+/**
+ * Sanctum Moments Public Access Route
+ * Resolves moment metadata, enforces rate limits, validates passcodes via constant-time verification,
+ * and strips private fields (ownerUid, answer keys) before returning data.
+ */
+export const dynamic = "force-dynamic";
 
 export async function GET(
   request: NextRequest,

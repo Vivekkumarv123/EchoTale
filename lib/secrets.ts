@@ -1,6 +1,7 @@
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT: Hardcoded credentials and unencrypted secret access from process environment.
-// RULE: Retrieve secrets dynamically from GCP Secret Manager server-side with fail-closed security and in-memory TTL caching.
+/**
+ * GCP Secret Manager Client
+ * Dynamically resolves secrets with in-memory TTL caching and local development fallbacks.
+ */
 
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 

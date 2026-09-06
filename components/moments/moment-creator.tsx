@@ -661,14 +661,14 @@ ${url}
               className="w-full p-4 rounded-2xl bg-white/50 dark:bg-black/40 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm leading-relaxed font-serif"
             />
 
-            {/* AI POLISHING ACTION BAR (Persona D) */}
+            {/* AI POLISHING ACTION BAR */}
             <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-amber-500/10 dark:bg-amber-500/5 p-4 rounded-2xl border border-amber-500/20">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-amber-500 text-black flex items-center justify-center shrink-0 shadow-sm">
                   <Wand2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold">Let Gemini Help Me Say It (Persona D)</h4>
+                  <h4 className="text-xs font-bold">Let Gemini Refine It</h4>
                   <p className="text-[11px] opacity-75">
                     Transforms raw thoughts into a refined keepsake while preserving your exact truths and voice.
                   </p>
@@ -1460,7 +1460,7 @@ ${url}
                 <div className="flex justify-between py-1 border-b border-black/5 dark:border-white/5">
                   <span className="opacity-60">Version Delivered:</span>
                   <span className="font-bold">
-                    {usePolished ? "Gemini Polished (Persona D)" : "Original Raw Draft"}
+                    {usePolished ? "Gemini Refined" : "Original Raw Draft"}
                   </span>
                 </div>
                 <div className="flex justify-between py-1">

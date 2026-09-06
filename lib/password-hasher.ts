@@ -1,18 +1,7 @@
 /**
- * =========================================================================
- * PERSONA A: SECURE PASSCODE HASHER & VERIFIER
- * =========================================================================
- * THREAT MODEL:
- * 1. Attacker attempting brute-force dictionary attacks against locked keepsakes.
- * 2. Attacker extracting the database to view plaintext passwords.
- * 3. Timing attacks comparing password hashes character-by-character.
- *
- * DEFENSIVE RULES ADDRESSED:
- * - "Never hardcode API keys, service account credentials, or secrets in source code."
- * - "Validate and sanitize all user input server-side before it reaches the database."
- * - Use PBKDF2 with 100,000 iterations of SHA-256 and unique 16-byte cryptographic salt.
- * - Constant-time comparison to eliminate timing side-channels.
- * =========================================================================
+ * Passcode Hashing & Verification
+ * Uses PBKDF2 with SHA-256 (100,000 iterations), 16-byte cryptographic salts,
+ * and constant-time comparison to protect protected keepsakes.
  */
 
 /**

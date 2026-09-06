@@ -5,19 +5,12 @@ import { getSecret } from "@/lib/secrets";
 import { checkRateLimit } from "@/lib/rate-limiter";
 import { GoogleGenAI } from "@google/genai";
 
-// =========================================================================
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT MODEL:
-// 1. Unauthenticated client invoking expensive LLM polishing endpoint.
-// 2. Prompt injection payload hidden in raw user message attempting to alter system instructions.
-// 3. Excessive API quota drain from single malicious account.
-//
-// SECURITY RULES:
-// - Verify Firebase Auth ID token server-side before parsing payloads.
-// - Enforce rate-limiting per verified UID.
-// - Zod schema validation on all boundary inputs.
-// - Isolate Persona D constitution inside config.systemInstruction.
-// =========================================================================
+export const dynamic = "force-dynamic";
+
+/**
+ * AI Keepsake Polish Route
+ * Refines messages into occasion-tailored prose while preserving genuine sentiment.
+ */
 
 const PolishRequestSchema = z.object({
   rawMessage: z

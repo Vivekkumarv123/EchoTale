@@ -4,15 +4,11 @@ import { checkRateLimit } from "@/lib/rate-limiter";
 import { SanctumMoment } from "@/types/moment";
 import { z } from "zod";
 
-// =========================================================================
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT:
-// Recipient or malicious actor inspecting DOM/Network payloads to cheat on
-// trivia or brute-force quiz answers.
-//
-// DEFENSIVE RULE:
-// Verify answer index strictly server-side against the Firestore document.
-// =========================================================================
+/**
+ * Quiz Answer Verification Route
+ * Verifies memory trivia answers strictly server-side without exposing correct answers in client payloads.
+ */
+export const dynamic = "force-dynamic";
 
 const VerifyQuizSchema = z.object({
   questionId: z.string().min(1),

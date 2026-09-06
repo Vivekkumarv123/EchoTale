@@ -8,16 +8,13 @@ import { getStorage, type FirebaseStorage } from "firebase/storage";
  * 
  * Configured dynamically from environment variables with fallback to firebase-applet-config.json.
  */
-const envApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
-const envProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-
 const firebaseConfig = {
-  apiKey: envApiKey || "AIzaSyPreviewMockKeyForInitialization0000",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "echotale.firebaseapp.com",
-  projectId: envProjectId || "echotale-preview",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "echotale-preview.appspot.com",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "1234567890",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:1234567890:web:preview0000",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "",
 };
 
 // Initialize Firebase client instance safely (singleton across hot reloads and build passes)
@@ -26,9 +23,9 @@ const app: FirebaseApp =
 
 const auth: Auth = getAuth(app);
 
-// Use custom db ID if defined, or appletConfig.firestoreDatabaseId ONLY if using default project
+// Use custom db ID if defined, or default project
 const customDbId = process.env.NEXT_PUBLIC_FIREBASE_DATABASE_ID;
-const isCustomProject = !!envProjectId ;
+const isCustomProject = !!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 const databaseId = customDbId || (isCustomProject ? undefined : "") || undefined;
 
 let db: Firestore;

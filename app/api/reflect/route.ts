@@ -5,17 +5,7 @@ import { getSecret } from "@/lib/secrets";
 import { checkRateLimit } from "@/lib/rate-limiter";
 import { GoogleGenAI } from "@google/genai";
 
-// PERSONA A — SECURE BACKEND ENGINEER
-// THREAT:
-// 1. Unauthenticated or forged requests invoking the Gemini API.
-// 2. Malicious user attempting prompt injection or model constitution override.
-// 3. Quota exhaustion / DoS attacks.
-// RULES:
-// - Verify ID Token using Firebase Admin SDK server-side.
-// - Enforce rate limiting per authenticated UID.
-// - Retrieve GEMINI_API_KEY dynamically via Secret Manager with fail-closed isolation.
-// - Validate payloads strictly via Zod schema.
-// - Separate system instructions from user content to prevent prompt injection.
+export const dynamic = "force-dynamic";
 
 const ReflectRequestSchema = z.object({
   prompt: z.string().min(1, "Prompt cannot be empty").max(4000, "Maximum character length is 4000"),
@@ -24,7 +14,7 @@ const ReflectRequestSchema = z.object({
   existingTitles: z.array(z.string().max(100)).max(50).optional().default([]),
 });
 
-// PERSONA B: NARRATIVE STORYTELLER CONSTITUTION & PROMPT INJECTION GUARD
+// Narrative Constitution & Prompt Injection Shield
 const SYSTEM_INSTRUCTION = `You are EchoTale's Time Capsule Engine and Narrative Chronicler.
 Your purpose is to take raw user journal entries and synthesize them into vivid, grounded literary time capsules.
 
